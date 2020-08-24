@@ -1,29 +1,23 @@
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
+package java;
 
-public class _337A {
+import java.io.IOException;
+
+public class _1030A {
     public static void main(String[] args) {
         MyScanner input = new MyScanner();
-        int windowSize= input.kint();
-        int num= input.kint();
-        ArrayList puzzelList = new ArrayList();
-        int minDistance = 1000;
-        int tmp;
+        int n = input.kint();
+        int[] arr = new int[n];
+        for (int i=0; i<n; i++)
+            arr[i] = input.kint();
 
-        for (int i=0; i< num; i++){
-            puzzelList.add(input.kint());
+        for (int i=0; i<n; i++){
+            if (arr[i] == 1){
+                System.out.println("hard");
+                System.exit(0);
+            }
         }
-        Collections.sort(puzzelList);
-
-        for (int i=0; i<= num-windowSize; i++){
-            tmp= ((int) puzzelList.get(windowSize+i-1)) - ((int) puzzelList.get(i));
-            if (tmp<minDistance)
-                minDistance= tmp;
-        }
-        System.out.println(minDistance);
+        System.out.println("easy");
     }
-
     static class MyScanner{
         static String kLine(int maxLg) {
             byte lin[] = new byte[maxLg];

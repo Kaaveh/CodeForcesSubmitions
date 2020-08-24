@@ -1,26 +1,22 @@
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
+package java;
 
-public class _479A {
+import java.io.IOException;
+
+public class _977A {
     public static void main(String[] args) {
         MyScanner input = new MyScanner();
-        ArrayList num = new ArrayList();
+        int n = input.kint();
+        int k = input.kint();
 
-        int a= input.kint();
-        int b= input.kint();
-        int c= input.kint();
+        for (int i=0; i<k; i++){
+            if (n%10 == 0)
+                n /= 10;
+            else{
+                n --;
+            }
+        }
 
-        num.add(a+b+c);
-        num.add((a+b)*c);
-        num.add(a*(b+c));
-        num.add(a*b*c);
-        num.add(a*b+c);
-        num.add(a+b*c);
-
-        Collections.sort(num);
-
-        System.out.println((int) num.get(num.size()-1));
+        System.out.println(n);
     }
 
     static class MyScanner{

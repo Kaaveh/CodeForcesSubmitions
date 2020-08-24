@@ -1,22 +1,28 @@
-import java.io.IOException;
+package java;
 
-public class _791A {
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class _479A {
     public static void main(String[] args) {
         MyScanner input = new MyScanner();
-        int limak = input.kint();
-        int bob = input.kint();
-        int year = 0;
+        ArrayList num = new ArrayList();
 
-        while (true){
-            if (limak > bob)
-                break;
-            else {
-                year++;
-                limak *= 3;
-                bob *= 2;
-            }
-        }
-        System.out.println(year);
+        int a= input.kint();
+        int b= input.kint();
+        int c= input.kint();
+
+        num.add(a+b+c);
+        num.add((a+b)*c);
+        num.add(a*(b+c));
+        num.add(a*b*c);
+        num.add(a*b+c);
+        num.add(a+b*c);
+
+        Collections.sort(num);
+
+        System.out.println((int) num.get(num.size()-1));
     }
 
     static class MyScanner{

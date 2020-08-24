@@ -1,21 +1,24 @@
+package java;
+
 import java.io.IOException;
 
-public class _1030A {
+public class _705A {
     public static void main(String[] args) {
         MyScanner input = new MyScanner();
         int n = input.kint();
-        int[] arr = new int[n];
-        for (int i=0; i<n; i++)
-            arr[i] = input.kint();
 
         for (int i=0; i<n; i++){
-            if (arr[i] == 1){
-                System.out.println("hard");
-                System.exit(0);
-            }
+            if (i%2 == 0)
+                System.out.print("I hate ");
+            else
+                System.out.print("I love ");
+            if (i == n-1)
+                System.out.print("it");
+            else
+                System.out.print("that ");
         }
-        System.out.println("easy");
     }
+
     static class MyScanner{
         static String kLine(int maxLg) {
             byte lin[] = new byte[maxLg];

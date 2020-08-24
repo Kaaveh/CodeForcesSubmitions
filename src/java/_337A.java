@@ -1,23 +1,29 @@
-import java.io.IOException;
+package java;
 
-public class _339B {
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class _337A {
     public static void main(String[] args) {
         MyScanner input = new MyScanner();
-        int size= input.kint();
-        int jump= input.kint();
-        int former= 1;
-        int current= 1;
-        long time=0;
+        int windowSize= input.kint();
+        int num= input.kint();
+        ArrayList puzzelList = new ArrayList();
+        int minDistance = 1000;
+        int tmp;
 
-        for (int i=0; i<jump; i++){
-            former = current;
-            current= input.kint();
-            if (current>= former)
-                time+= current-former;
-            else
-                time+= size- (former-current);
+        for (int i=0; i< num; i++){
+            puzzelList.add(input.kint());
         }
-        System.out.println(time);
+        Collections.sort(puzzelList);
+
+        for (int i=0; i<= num-windowSize; i++){
+            tmp= ((int) puzzelList.get(windowSize+i-1)) - ((int) puzzelList.get(i));
+            if (tmp<minDistance)
+                minDistance= tmp;
+        }
+        System.out.println(minDistance);
     }
 
     static class MyScanner{
@@ -76,4 +82,3 @@ public class _339B {
         }
     }
 }
-

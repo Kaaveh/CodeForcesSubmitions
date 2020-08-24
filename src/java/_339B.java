@@ -1,20 +1,25 @@
+package java;
+
 import java.io.IOException;
 
-public class _977A {
+public class _339B {
     public static void main(String[] args) {
         MyScanner input = new MyScanner();
-        int n = input.kint();
-        int k = input.kint();
+        int size= input.kint();
+        int jump= input.kint();
+        int former= 1;
+        int current= 1;
+        long time=0;
 
-        for (int i=0; i<k; i++){
-            if (n%10 == 0)
-                n /= 10;
-            else{
-                n --;
-            }
+        for (int i=0; i<jump; i++){
+            former = current;
+            current= input.kint();
+            if (current>= former)
+                time+= current-former;
+            else
+                time+= size- (former-current);
         }
-
-        System.out.println(n);
+        System.out.println(time);
     }
 
     static class MyScanner{
@@ -73,3 +78,4 @@ public class _977A {
         }
     }
 }
+

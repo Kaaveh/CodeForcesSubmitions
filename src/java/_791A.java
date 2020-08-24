@@ -1,20 +1,24 @@
+package java;
+
 import java.io.IOException;
 
-public class _705A {
+public class _791A {
     public static void main(String[] args) {
         MyScanner input = new MyScanner();
-        int n = input.kint();
+        int limak = input.kint();
+        int bob = input.kint();
+        int year = 0;
 
-        for (int i=0; i<n; i++){
-            if (i%2 == 0)
-                System.out.print("I hate ");
-            else
-                System.out.print("I love ");
-            if (i == n-1)
-                System.out.print("it");
-            else
-                System.out.print("that ");
+        while (true){
+            if (limak > bob)
+                break;
+            else {
+                year++;
+                limak *= 3;
+                bob *= 2;
+            }
         }
+        System.out.println(year);
     }
 
     static class MyScanner{
