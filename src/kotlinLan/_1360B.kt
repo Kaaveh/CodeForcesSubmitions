@@ -4,6 +4,6 @@ fun main() {
     repeat(readLine()!!.toInt()){
         readLine()
         val athletes = readLine()!!.split(" ").map { it.toInt() }.sorted()
-        println(athletes.zipWithNext().map { it.second - it.first }.min())
+        println(athletes.zipWithNext().minOf { it.second - it.first })
     }
 }

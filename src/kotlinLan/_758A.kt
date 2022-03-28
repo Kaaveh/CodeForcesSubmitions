@@ -4,6 +4,6 @@ fun main() {
     readLine()!!
     val citizens = readLine()!!
         .split(" ").map { it.toInt() }
-    val max = citizens.max()!!
-    println(citizens.map { max - it }.sum())
+    val max = citizens.maxOrNull()!!
+    println(citizens.sumOf { max - it })
 }
